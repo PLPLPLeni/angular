@@ -1,0 +1,24 @@
+<p>header works!</p>
+
+<div class="bloc-header">
+    <button (click)="clicked($event)" (dblclick)="clicked($event)" (mouseover)="mouseOvered()">Test</button>
+
+    <img [src]="imageSrc">
+
+    <input [(ngModel)]="imageSrc">
+
+    <label>Cliquer pour afficher/cacher</label>
+    <input type="checkbox" [(ngModel)]="showDetail">
+
+    <div *ngIf="showDetail">
+        Je suis du détail
+    </div>
+
+    <label>Saisir une couleur :</label>
+    <input [(ngModel)]="couleur">
+    <div [ngSwitch]="couleur">
+        <label *ngSwitchCase="'rouge'">Rouge</label>
+        <label *ngSwitchCase="'bleu'">Bleu</label>
+        <label *ngSwitchDefault>Ni du rouge, ni du bleu</label>
+    </div>
+</div>
