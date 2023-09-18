@@ -11,8 +11,12 @@ export class HeaderComponent implements OnInit, OnDestroy, OnChanges {
   public compteur: number = 0;
   public imageSrc?: string;
 
+  public colors:string[] = ['red', 'blue', 'yellow'];
+
   // Le "?" permets de préciser que la propiété est "nullable"
   public couleur?: string;
+
+  public now: Date = new Date();
 
   ngOnChanges(changes: SimpleChanges): void {
     console.log('Header changes', changes);

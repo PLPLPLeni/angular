@@ -11,14 +11,33 @@
     <input type="checkbox" [(ngModel)]="showDetail">
 
     <div *ngIf="showDetail">
-        Je suis du détail
+        {{ 'Je suis du détail' | titlecase }}
     </div>
 
-    <label>Saisir une couleur :</label>
+    <!-- Utilisation du [class.property]-->    
+    <label [class.bleu]="couleur == 'bleu'" [class.rouge]="couleur == 'rouge'">Saisir une couleur :</label>
     <input [(ngModel)]="couleur">
-    <div [ngSwitch]="couleur">
+    <!-- Utilisation du [ngClass]-->
+    <div [ngSwitch]="couleur" [ngClass]="{ 'rouge':couleur == 'rouge', 'bleu':couleur == 'bleu'}">
         <label *ngSwitchCase="'rouge'">Rouge</label>
         <label *ngSwitchCase="'bleu'">Bleu</label>
         <label *ngSwitchDefault>Ni du rouge, ni du bleu</label>
     </div>
+
+    <!-- Utilisation du [ngStyle] -->
+    <div style="height: 100px;width: 100px;" [ngStyle]="{ 'background-color': couleur }">
+    </div>
+    <!-- Utilisation du raccourci [style.property]-->
+    <div style="height: 100px;width: 100px;" [style.background-color]="couleur">
+    </div>
+
+    <label>Liste des couleurs</label>
+    <div *ngFor="let color of colors" [style.color]="color">
+        Color = {{ color | uppercase }}
+    </div>
+
+    Date :
+    <span>{{ now | date:'dd/MM/yyyy' }}</span>
+    Heure :
+    <span>{{ now | date:'HH:mm' }}</span>
 </div>
