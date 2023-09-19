@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { HelloworldService } from './services/helloworld.service';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'calcul-empreinte-carbone';
+
+  
+  constructor(private helloWorldService: HelloworldService) {
+    this.helloWorldService.helloWorld();
+  }
 }

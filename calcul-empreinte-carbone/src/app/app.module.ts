@@ -11,6 +11,7 @@ import { CarbonFootprintResultComponent } from './components/carbon-footprint-re
 
 import localeFr from '@angular/common/locales/fr';
 import { registerLocaleData } from '@angular/common';
+import { HelloworldService } from './services/helloworld.service';
 
 // Inscrit la locale FR comme une locale disponible dans l'appli
 registerLocaleData(localeFr);
@@ -29,9 +30,10 @@ registerLocaleData(localeFr);
     AppRoutingModule
   ],
   providers: [{
-    provide:LOCALE_ID, 
+    provide: LOCALE_ID,
     useValue: 'fr-FR'
-  }],
+  },
+    HelloworldService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
