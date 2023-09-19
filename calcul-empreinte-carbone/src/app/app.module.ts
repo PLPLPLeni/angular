@@ -13,6 +13,7 @@ import localeFr from '@angular/common/locales/fr';
 import { registerLocaleData } from '@angular/common';
 import { HelloworldService } from './services/helloworld.service';
 import { CarbonFootprintComputeService } from './services/carbon-footprint-compute.service';
+import { FormsModule } from '@angular/forms';
 
 // Inscrit la locale FR comme une locale disponible dans l'appli
 registerLocaleData(localeFr);
@@ -28,7 +29,8 @@ registerLocaleData(localeFr);
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    
   ],
   providers: [{
     provide: LOCALE_ID,

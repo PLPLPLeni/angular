@@ -1,4 +1,10 @@
-<app-header></app-header>
-
 <h1>{{title}}</h1>
-<app-footer></app-footer>
+<button type="button" (click)="afficherHeader()">Afficher le header</button>
+<button type="button" routerLink="footer">Afficher le footer</button>
+<button type="button" [routerLink]="['sayHello', 'Toto', '40']">Afficher le footer bis</button>
+<button type="button" [routerLink]="['sayHello', 'Titi', '22']">Afficher le footer ter</button>
+<router-outlet></router-outlet>
+<!-- <app-header></app-header>
+
+
+<app-footer></app-footer> -->
