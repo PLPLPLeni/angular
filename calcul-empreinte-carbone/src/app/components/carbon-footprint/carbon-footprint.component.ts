@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import * as _ from 'lodash';
+import { IVoyage, Voyage } from 'src/app/entities/voyage';
+import { CarbonFootprintComputeService } from 'src/app/services/carbon-footprint-compute.service';
 
 @Component({
   selector: 'app-carbon-footprint',
@@ -7,41 +8,33 @@ import * as _ from 'lodash';
   styleUrls: ['./carbon-footprint.component.scss']
 })
 export class CarbonFootprintComponent implements OnInit {
-  public distanceKm: number = 0;
-  public consommationPour100Km: number = 0;
-  public consommationTotale: number = 0;
+  public voyageResume?: IVoyage;
+  public voyages?: IVoyage[];
 
-  voyages = [
-    { distanceKm: 50, consommationPour100Km: 5 },
-    { distanceKm: 150, consommationPour100Km: 6 },
-    { distanceKm: 250, consommationPour100Km: 7 },
-    { distanceKm: 350, consommationPour100Km: 8 },
-    { distanceKm: 450, consommationPour100Km: 9 }
-  ];
+  constructor(private carbonService: CarbonFootprintComputeService) {
+
+  }
 
   ngOnInit() {
     console.log('Le composant a été initialisé.');
-    this.updateResume();
-  }
-
-  public addKms(kmsToAdd: number): void {
-    this.distanceKm += kmsToAdd;
+    this.updateResumeAndVoyages();
   }
 
   public genererVoyage(): void {
-    const voyage = {
-      distanceKm: Math.random() * 100,
-      consommationPour100Km: Math.random() * 15
-    };
+    const voyage = new Voyage(
+      Math.random() * 100,
+      Math.random() * 15
+    );
 
-    this.voyages.push(voyage);
-    this.updateResume();
+    this.carbonService.addVoyage(voyage);
+
+    this.updateResumeAndVoyages();
   }
 
-  private updateResume(): void {
-    // _ => correspond à lodash
-    this.distanceKm = _.sumBy(this.voyages, v => v.distanceKm);
-    this.consommationPour100Km = _.meanBy(this.voyages, v => v.consommationPour100Km);
+  private updateResumeAndVoyages(): void {
+    this.voyages = this.carbonService.getVoyages();
+    this.voyageResume = this.carbonService.getResumeVoyages();
+
 
   }
 }
