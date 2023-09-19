@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { LOCALE_ID, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -8,6 +8,12 @@ import { FooterComponent } from './components/footer/footer.component';
 import { CarbonFootprintComponent } from './components/carbon-footprint/carbon-footprint.component';
 import { CarbonFootprintFormComponent } from './components/carbon-footprint-form/carbon-footprint-form.component';
 import { CarbonFootprintResultComponent } from './components/carbon-footprint-result/carbon-footprint-result.component';
+
+import localeFr from '@angular/common/locales/fr';
+import { registerLocaleData } from '@angular/common';
+
+// Inscrit la locale FR comme une locale disponible dans l'appli
+registerLocaleData(localeFr);
 
 @NgModule({
   declarations: [
@@ -22,7 +28,10 @@ import { CarbonFootprintResultComponent } from './components/carbon-footprint-re
     BrowserModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [{
+    provide:LOCALE_ID, 
+    useValue: 'fr-FR'
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

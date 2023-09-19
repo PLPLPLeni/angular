@@ -1,0 +1,11 @@
+.consommation-elevee, .haute-distance {
+    color: red;
+}
+
+.consommation-faible, .basse-distance {
+    color: green;
+}
+
+.haute-distance, .basse-distance {
+    font-weight: bold;
+}

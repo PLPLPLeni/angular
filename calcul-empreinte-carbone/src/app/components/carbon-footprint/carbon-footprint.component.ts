@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import * as _ from 'lodash';
 
 @Component({
   selector: 'app-carbon-footprint',
@@ -6,27 +7,41 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./carbon-footprint.component.scss']
 })
 export class CarbonFootprintComponent implements OnInit {
+  public distanceKm: number = 0;
+  public consommationPour100Km: number = 0;
+  public consommationTotale: number = 0;
+
+  voyages = [
+    { distanceKm: 50, consommationPour100Km: 5 },
+    { distanceKm: 150, consommationPour100Km: 6 },
+    { distanceKm: 250, consommationPour100Km: 7 },
+    { distanceKm: 350, consommationPour100Km: 8 },
+    { distanceKm: 450, consommationPour100Km: 9 }
+  ];
+
   ngOnInit() {
     console.log('Le composant a été initialisé.');
+    this.updateResume();
   }
 
-  ngOnDestroy() {
-    console.log('Le composant a été détruit.');
+  public addKms(kmsToAdd: number): void {
+    this.distanceKm += kmsToAdd;
   }
 
-  ngAfterContentInit() {
-    console.log('Le contenu du composant a été initialisé.');
+  public genererVoyage(): void {
+    const voyage = {
+      distanceKm: Math.random() * 100,
+      consommationPour100Km: Math.random() * 15
+    };
+
+    this.voyages.push(voyage);
+    this.updateResume();
   }
 
-  ngAfterContentChecked() {
-    console.log('Le contenu du composant est vérifié.');
-  }
+  private updateResume(): void {
+    // _ => correspond à lodash
+    this.distanceKm = _.sumBy(this.voyages, v => v.distanceKm);
+    this.consommationPour100Km = _.meanBy(this.voyages, v => v.consommationPour100Km);
 
-  ngAfterViewInit() {
-    console.log('La vue du composant a été initialisée.');
-  }
-
-  ngAfterViewChecked() {
-    console.log('La vue du composant a été vérifiée.');
   }
 }
