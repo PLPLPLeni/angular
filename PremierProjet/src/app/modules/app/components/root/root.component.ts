@@ -3,7 +3,8 @@ import { ActivatedRoute, ParamMap, Router } from "@angular/router";
 
 @Component({
     selector: 'eni-root',
-    templateUrl: './root.component.html'
+    templateUrl: './root.component.html',
+    styleUrls:['./root.component.scss']
 })
 export class RootComponent {
     public title: string = 'Titre de la page';

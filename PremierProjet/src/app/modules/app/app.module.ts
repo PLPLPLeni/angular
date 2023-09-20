@@ -6,12 +6,14 @@ import { RootComponent } from './components/root/root.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { HeaderComponent } from './components/header/header.component';
 import { FormsModule } from '@angular/forms';
+import { AdminComponent } from './components/admin/admin.component';
 
 @NgModule({
   declarations: [
     RootComponent,
     FooterComponent,
-    HeaderComponent
+    HeaderComponent,
+    AdminComponent
   ],
   imports: [
     BrowserModule,

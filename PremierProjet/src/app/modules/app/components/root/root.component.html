@@ -1,8 +1,9 @@
 <h1>{{title}}</h1>
+<a routerLink="admin" routerLinkActive="active">Admin</a>
 <button type="button" (click)="afficherHeader()">Afficher le header</button>
-<button type="button" routerLink="footer">Afficher le footer</button>
-<button type="button" [routerLink]="['sayHello', 'Toto', '40']">Afficher le footer bis</button>
-<button type="button" [routerLink]="['sayHello', 'Titi', '22']">Afficher le footer ter</button>
+<button type="button" routerLink="footer" routerLinkActive="active">Afficher le footer</button>
+<button type="button" [routerLink]="['sayHello', 'Toto', '40']" routerLinkActive="active">Afficher le footer bis</button>
+<button type="button" [routerLink]="['sayHello', 'Titi', '22']" routerLinkActive="active">Afficher le footer ter</button>
 <router-outlet></router-outlet>
 <!-- <app-header></app-header>
 
