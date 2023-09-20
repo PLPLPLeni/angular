@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { RootComponent } from './components/root/root.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { HeaderComponent } from './components/header/header.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AdminComponent } from './components/admin/admin.component';
 
 @NgModule({
@@ -18,7 +18,8 @@ import { AdminComponent } from './components/admin/admin.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule // Permets de faire du ngModel
+    FormsModule, // Permets de faire du ngModel
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [RootComponent]
