@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { HelloworldService } from 'src/app/services/helloworld.service';
+import { HelloworldService } from '../../services/helloworld.service';
 
 @Component({
   selector: 'app-header',

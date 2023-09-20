@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { IVoyage, Voyage } from 'src/app/entities/voyage';
-import { CarbonFootprintComputeService } from 'src/app/services/carbon-footprint-compute.service';
+import { IVoyage, Voyage } from '../../entities/voyage';
+import { CarbonFootprintComputeService } from '../../services/carbon-footprint-compute.service';
 
 @Component({
   selector: 'app-carbon-footprint',
