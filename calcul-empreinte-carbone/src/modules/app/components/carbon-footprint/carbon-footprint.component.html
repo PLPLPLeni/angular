@@ -21,24 +21,7 @@
         Félicitations, votre consommation est faible
     </span>
 </div>
-<h2>Liste des voyages</h2>
-<button type="button" (click)="genererVoyage()">Générer voyage</button>
-<table>
-    <thead>
-        <tr>
-            <th>Distance Km</th>
-            <th>Consommation pour 100 Km</th>
-            <th>CO2</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor="let voyage of voyages">
-            <td>{{ voyage.distanceKm | number:'1.0-0' }}</td>
-            <td>{{ voyage.consommationPour100Km | number:'1.0-1' }}</td>
-            <td>{{ voyage.quantiteCO2 | number:'1.0-1' }}</td>
-        </tr>
-    </tbody>
-</table>
+
 
 <app-carbon-footprint-form></app-carbon-footprint-form>
 <app-carbon-footprint-result></app-carbon-footprint-result>

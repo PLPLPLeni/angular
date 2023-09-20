@@ -1,4 +1,5 @@
 export interface IVoyage {
+    id: number;
     distanceKm: number;
     consommationPour100Km: number;
     get quantiteCO2(): number;
@@ -7,6 +8,7 @@ export interface IVoyage {
 export class Voyage implements IVoyage {
 
     constructor(
+        public id: number,
         public distanceKm: number,
         public consommationPour100Km: number) {
     }

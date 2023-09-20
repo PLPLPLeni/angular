@@ -14,6 +14,10 @@ import localeFr from '@angular/common/locales/fr';
 import { AuthModule } from '../auth/auth.module';
 import { CarbonFootprintComputeService } from './services/carbon-footprint-compute.service';
 import { HelloworldService } from './services/helloworld.service';
+import { MenuComponent } from './components/menu/menu.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { VoyagesComponent } from './components/voyages/voyages.component';
+import { CreateUpdateVoyageComponent } from './components/create-update-voyage/create-update-voyage.component';
 
 // Alt + Shift + O => permet de nettoyer les imports automatiquement
 
@@ -27,12 +31,16 @@ registerLocaleData(localeFr);
     FooterComponent,
     CarbonFootprintComponent,
     CarbonFootprintFormComponent,
-    CarbonFootprintResultComponent
+    CarbonFootprintResultComponent,
+    MenuComponent,
+    VoyagesComponent,
+    CreateUpdateVoyageComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    AuthModule
+    AuthModule,
+    NgbModule
   ],
   providers: [{
     provide: LOCALE_ID,

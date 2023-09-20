@@ -20,17 +20,6 @@ export class CarbonFootprintComponent implements OnInit {
     this.updateResumeAndVoyages();
   }
 
-  public genererVoyage(): void {
-    const voyage = new Voyage(
-      Math.random() * 100,
-      Math.random() * 15
-    );
-
-    this.carbonService.addVoyage(voyage);
-
-    this.updateResumeAndVoyages();
-  }
-
   private updateResumeAndVoyages(): void {
     this.voyages = this.carbonService.getVoyages();
     this.voyageResume = this.carbonService.getResumeVoyages();

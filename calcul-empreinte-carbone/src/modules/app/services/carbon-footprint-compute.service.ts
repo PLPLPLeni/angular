@@ -6,11 +6,11 @@ import { IVoyage, Voyage } from '../entities/voyage';
 export class CarbonFootprintComputeService {
 
   private _voyages: IVoyage[] = [
-    new Voyage(50, 5),
-    new Voyage(150, 6),
-    new Voyage(250, 7),
-    new Voyage(350, 8),
-    new Voyage(450, 9)
+    new Voyage(1, 50, 5),
+    new Voyage(2, 150, 6),
+    new Voyage(3, 250, 7),
+    new Voyage(4, 350, 8),
+    new Voyage(5, 450, 9)
   ];
 
   constructor() { }
@@ -28,6 +28,10 @@ export class CarbonFootprintComputeService {
   }
 
   public addVoyage(voyage: IVoyage): void {
+    const maxVoyage: IVoyage | undefined = _.maxBy(this._voyages, v => v.id);
+
+    voyage.id = maxVoyage ? maxVoyage.id + 1 : 1;
+    
     this._voyages.push(voyage);
   }
 }

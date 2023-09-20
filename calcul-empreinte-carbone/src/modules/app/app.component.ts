@@ -9,8 +9,9 @@ import { HelloworldService } from './services/helloworld.service';
 export class AppComponent {
   title = 'calcul-empreinte-carbone';
 
-  
+
   constructor(private helloWorldService: HelloworldService) {
     this.helloWorldService.helloWorld();
+
   }
 }

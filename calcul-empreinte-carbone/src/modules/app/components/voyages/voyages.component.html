@@ -1,0 +1,20 @@
+<h2>Liste des voyages</h2>
+<button type="button" class="btn btn-secondary" (click)="genererVoyage()">Générer voyage</button>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Distance Km</th>
+            <th>Consommation pour 100 Km</th>
+            <th>CO2</th>
+            <th>&nbsp;</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let voyage of voyages">
+            <td>{{ voyage.distanceKm | number:'1.0-0' }}</td>
+            <td>{{ voyage.consommationPour100Km | number:'1.0-1' }}</td>
+            <td>{{ voyage.quantiteCO2 | number:'1.0-1' }}</td>
+            <td><a class="btn btn-sm btn-info" [routerLink]="['/voyage', voyage.id]">Éditer</a></td>
+        </tr>
+    </tbody>
+</table>

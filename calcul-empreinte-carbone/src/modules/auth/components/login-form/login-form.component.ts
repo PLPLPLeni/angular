@@ -19,6 +19,7 @@ export class LoginFormComponent {
       return;
     }
 
+    alert('Connexion réussie');
     this.authService.saveCurrentUser(this.login);
   }
 }
