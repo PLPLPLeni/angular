@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 import { IVoyage, Voyage } from '../../entities/voyage';
 import { CarbonFootprintComputeService } from '../../services/carbon-footprint-compute.service';
+import { VoyageEnCamionValidator } from './validators';
 
 @Component({
   selector: 'app-create-update-voyage',
@@ -40,8 +41,15 @@ export class CreateUpdateVoyageComponent implements OnInit {
   private initFormGroup(): void {
     this.formGroup = this.formBuilder.group({
       distanceKm: [this.currentVoyage?.distanceKm, [Validators.required, Validators.min(0)]],
-      consommationPour100Km: [this.currentVoyage?.consommationPour100Km, [Validators.required, Validators.min(1)]],
-      voyageDeTypeEco: [this.currentVoyage?.voyageDeTypeEco]
+      consommationPour100Km: [this.currentVoyage?.consommationPour100Km, [Validators.required, Validators.min(1), VoyageEnCamionValidator(() => this.formGroup || null, 5)]],
+      voyageEnCamion: [this.currentVoyage?.voyageEnCamion]
+    });
+
+    // Abonnement au changement de valeur du flag voyageEnCamion
+    this.formGroup.controls['voyageEnCamion'].valueChanges.subscribe(() => {
+
+      // On rafraichit le validateur du champ consommationPour100Km
+      this.formGroup?.controls['consommationPour100Km'].updateValueAndValidity();
     });
   }
 

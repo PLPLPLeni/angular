@@ -31,12 +31,16 @@
                 La consommation doit être supérieure à
                 {{ formGroup.controls['consommationPour100Km'].errors['min'].min }}
             </label>
+
+            <label *ngIf="formGroup.controls['consommationPour100Km'].errors['VoyageEnCamion']">
+                Si le voyage est réalisé avec un camion, la consommation ne peut pas être inférieure à {{ formGroup.controls['consommationPour100Km'].errors['MinConsommation']}}.
+            </label>
         </div>
     </div>
 
     <div class="mb-3">
-        <input type="checkbox" class="form-check-input me-1" id="flagEco" formControlName="voyageDeTypeEco">
-        <label for="flagEco" class="form-check-label">Voyage à but écolo ?</label>
+        <input type="checkbox" class="form-check-input me-1" id="flagEco" formControlName="voyageEnCamion">
+        <label for="flagEco" class="form-check-label">Voyage en camion ?</label>
     </div>
 
     <button type="submit" class="btn btn-primary">Enregistrer</button>

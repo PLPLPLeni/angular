@@ -1,6 +1,6 @@
 export interface IVoyage {
     id?: number;
-    voyageDeTypeEco?: boolean;
+    voyageEnCamion?: boolean;
     distanceKm?: number;
     consommationPour100Km?: number;
     get quantiteCO2(): number;
@@ -12,7 +12,7 @@ export class Voyage implements IVoyage {
         public id?: number,
         public distanceKm?: number,
         public consommationPour100Km?: number,
-        public voyageDeTypeEco?: boolean) {
+        public voyageEnCamion?: boolean) {
     }
 
     get quantiteCO2(): number {
