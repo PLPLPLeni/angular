@@ -19,9 +19,23 @@ export class CarbonFootprintComputeService {
     return this._voyages;
   }
 
+  public getVoyageById(id: string | null | number): IVoyage | null {
+    if (id == null) {
+      return null;
+    }
+
+    const result: IVoyage | undefined = this._voyages.find(v => v.id == +id);
+
+    if (result == undefined) {
+      return null;
+    }
+
+    return result;
+  }
+
   public getResumeVoyages(): IVoyage {
     return <IVoyage>{
-      distanceKm: _.sumBy(this._voyages, v => v.distanceKm),
+      distanceKm: _.sumBy(this._voyages, v => v.distanceKm || 0),
       consommationPour100Km: _.meanBy(this._voyages, v => v.consommationPour100Km),
       quantiteCO2: _.sumBy(this._voyages, v => v.quantiteCO2)
     };
@@ -30,8 +44,8 @@ export class CarbonFootprintComputeService {
   public addVoyage(voyage: IVoyage): void {
     const maxVoyage: IVoyage | undefined = _.maxBy(this._voyages, v => v.id);
 
-    voyage.id = maxVoyage ? maxVoyage.id + 1 : 1;
-    
+    voyage.id = maxVoyage ? (maxVoyage.id || 0) + 1 : 1;
+
     this._voyages.push(voyage);
   }
 }

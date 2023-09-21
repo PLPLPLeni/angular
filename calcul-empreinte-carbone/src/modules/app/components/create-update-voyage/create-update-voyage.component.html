@@ -1,1 +1,44 @@
-<p>Affichage du voyage n°{{id}}</p>
+<h1>{{ isInCreation ? "Nouveau voyage" : ("Édition du voyage n°" + currentVoyage?.id) }}</h1>
+<form *ngIf="formGroup" [formGroup]="formGroup" (ngSubmit)="submit()">
+
+    <div class="mb-3">
+        <label for="distance" class="form-label">Distance (en Km)</label>
+        <input type="number" class="form-control" id="distance" formControlName="distanceKm"
+            placeholder="Saisir la distance parcourue..">
+        <div class="form-error" *ngIf="formGroup.controls['distanceKm'].errors">
+            <label *ngIf="formGroup.controls['distanceKm'].errors['required']">
+                Distance requise
+            </label>
+
+            <label *ngIf="formGroup.controls['distanceKm'].errors['min']">
+                La valeur saisie doit être supérieure à
+                {{ formGroup.controls['distanceKm'].errors['min'].min }}
+            </label>
+        </div>
+    </div>
+
+    <div class="mb-3">
+        <label for="consommation" class="form-label">Consommation pour 100 Kms</label>
+        <input type="number" class="form-control" id="consommation" formControlName="consommationPour100Km"
+            placeholder="Saisir la consommation effective pour 100 Kms">
+
+        <div class="form-error" *ngIf="formGroup.controls['consommationPour100Km'].errors">
+            <label *ngIf="formGroup.controls['consommationPour100Km'].errors['required']">
+                Consommation requise
+            </label>
+
+            <label *ngIf="formGroup.controls['consommationPour100Km'].errors['min']">
+                La consommation doit être supérieure à
+                {{ formGroup.controls['consommationPour100Km'].errors['min'].min }}
+            </label>
+        </div>
+    </div>
+
+    <div class="mb-3">
+        <input type="checkbox" class="form-check-input me-1" id="flagEco" formControlName="voyageDeTypeEco">
+        <label for="flagEco" class="form-check-label">Voyage à but écolo ?</label>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Enregistrer</button>
+
+</form>

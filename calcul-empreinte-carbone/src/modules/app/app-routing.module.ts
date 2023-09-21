@@ -21,6 +21,11 @@ const routes: Routes = [
     path: 'voyage/:id',
     component: CreateUpdateVoyageComponent,
     canActivate: [isAuthentified]
+  },
+  {
+    path: 'nouveau-voyage',
+    component: CreateUpdateVoyageComponent,
+    canActivate: [isAuthentified]
   }
 ];
 

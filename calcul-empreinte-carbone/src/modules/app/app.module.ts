@@ -18,6 +18,7 @@ import { MenuComponent } from './components/menu/menu.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { VoyagesComponent } from './components/voyages/voyages.component';
 import { CreateUpdateVoyageComponent } from './components/create-update-voyage/create-update-voyage.component';
+import { SharedModule } from '../shared/shared.module';
 
 // Alt + Shift + O => permet de nettoyer les imports automatiquement
 
@@ -40,7 +41,8 @@ registerLocaleData(localeFr);
     BrowserModule,
     AppRoutingModule,
     AuthModule,
-    NgbModule
+    NgbModule,
+    SharedModule
   ],
   providers: [{
     provide: LOCALE_ID,

@@ -16,18 +16,5 @@ export class VoyagesComponent implements OnInit {
 
   ngOnInit(): void {
     this.voyages = this.carbonService.getVoyages();
-  }
-
-  public genererVoyage(): void {
-    const voyage = new Voyage(
-      0,
-      Math.random() * 100,
-      Math.random() * 15
-    );
-
-    this.carbonService.addVoyage(voyage);
-
-    //  this.updateResumeAndVoyages();
-  }
-
+  }  
 }

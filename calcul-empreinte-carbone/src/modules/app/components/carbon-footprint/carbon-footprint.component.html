@@ -2,22 +2,22 @@
     <label>Résumé</label>
     <label>
         Consommation pour 100 kms : <span [ngClass]="{
-         'consommation-elevee':voyageResume.consommationPour100Km >=7,
-         'consommation-faible':voyageResume.consommationPour100Km <=4
+         'consommation-elevee':(voyageResume.consommationPour100Km || 0) >=7,
+         'consommation-faible':(voyageResume.consommationPour100Km || 0) <=4
         }">{{
             voyageResume.consommationPour100Km |number :'1.0-2' }}</span>
     </label>
     <label>
         Distance parcourue :
-        <span [class.haute-distance]="voyageResume.distanceKm > 500"
-            [class.basse-distance]="voyageResume.distanceKm < 100">
+        <span [class.haute-distance]="(voyageResume.distanceKm  || 0) > 500"
+            [class.basse-distance]="(voyageResume.distanceKm  || 0) < 100">
             {{ voyageResume.distanceKm | number:'1.0-0':'fr-FR' }}</span> kms
     </label>
     <label>Quantité de CO2 totale : {{ voyageResume.quantiteCO2 | number:'1.0-1' }}</label>
-    <span *ngIf="voyageResume.consommationPour100Km >= 7">
+    <span *ngIf="(voyageResume.consommationPour100Km  || 0) >= 7">
         Attention, votre consommation est élevée
     </span>
-    <span *ngIf="voyageResume.consommationPour100Km <= 4">
+    <span *ngIf="(voyageResume.consommationPour100Km  || 0) <= 4">
         Félicitations, votre consommation est faible
     </span>
 </div>

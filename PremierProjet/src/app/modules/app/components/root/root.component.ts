@@ -24,6 +24,7 @@ export class RootComponent implements OnInit {
     }
 
     ngOnInit(): void {
+
         this.formGroup = this.formBuilder.group({
             text1: this.formBuilder.control('', Validators.required),
             password1: this.formBuilder.control('', [Validators.required, Validators.minLength(8)]),
