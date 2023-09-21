@@ -1,4 +1,12 @@
 <h1>{{title}}</h1>
+Random quote = <span [innerHTML]="(randomQuote$ | async)?.h"></span>
+<br />
+<ng-container *ngIf="randomQuote$ | async as randomQuote">
+    a = {{ randomQuote.a}}<br />
+    h = {{randomQuote.h}}<br />
+    q = {{ randomQuote.q}}<br />
+</ng-container>
+
 <a routerLink="admin" routerLinkActive="active">Admin</a>
 <button type="button" (click)="afficherHeader()">Afficher le header</button>
 <button type="button" routerLink="footer" routerLinkActive="active">Afficher le footer</button>
@@ -13,11 +21,11 @@
 
 <form *ngIf="formGroup" [formGroup]="formGroup" (ngSubmit)="submit()">
     <input type="text" placeholder="Text1" formControlName="text1"><br />
-    <label class="error"
-        *ngIf="(Text1?.touched || false) && Text1?.errors?.['required']">Text1
+    <label class="error" *ngIf="(Text1?.touched || false) && Text1?.errors?.['required']">Text1
         obligatoire</label><br />
     <input type="password" placeholder="Password" formControlName="password1"><br />
-    <label class="error" *ngIf="(Password1?.touched || false) && Password1?.errors?.['required']">Password obligatoire</label><br />
+    <label class="error" *ngIf="(Password1?.touched || false) && Password1?.errors?.['required']">Password
+        obligatoire</label><br />
     <label class="error" *ngIf="(Password1?.touched || false) && Password1?.errors?.['minlength']">Taille minum de 8
         requise</label><br />
     Cb1<input type="checkbox" formControlName="checkbox1"><br />
