@@ -1,4 +1,5 @@
 <h1>{{title}}</h1>
+{{ someData$ | async}}<br />
 Random quote = <span [innerHTML]="(randomQuote$ | async)?.h"></span>
 <br />
 <ng-container *ngIf="randomQuote$ | async as randomQuote">

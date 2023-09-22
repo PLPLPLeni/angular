@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -9,6 +10,22 @@ export class HelloworldService {
 
   public helloWorld() {
     console.log('hello world');
+  }
+
+  public getSomeData(): Observable<string> {
+    const o = new Observable<string>(observer => {
+      observer.next("hello");
+
+      setTimeout(() => {
+        observer.next("world");
+        observer.complete();
+      }, 2000);
+
+    });
+
+
+
+    return o;
   }
 
   /**
