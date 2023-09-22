@@ -3,7 +3,7 @@ import { AbstractControl, FormBuilder, FormGroup, Validators } from "@angular/fo
 import { ActivatedRoute, Router } from "@angular/router";
 import { HelloworldService } from "../../services/helloworld.service";
 import { DemoRestAPIService } from "../../services/demo-rest-api.service";
-import { Observable, Subscription, delay, interval, map, merge, mergeAll, of } from "rxjs";
+import { Observable, Subscription, interval, map, merge, of } from "rxjs";
 import { IQuote } from "../../entities/quote";
 
 @Component({

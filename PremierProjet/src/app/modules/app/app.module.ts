@@ -7,14 +7,16 @@ import { FooterComponent } from './components/footer/footer.component';
 import { HeaderComponent } from './components/header/header.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AdminComponent } from './components/admin/admin.component';
-import { HttpClientModule } from '@angular/common/http'
+import { HttpClientModule } from '@angular/common/http';
+import { CounterComponent } from './components/counter/counter.component'
 
 @NgModule({
   declarations: [
     RootComponent,
     FooterComponent,
     HeaderComponent,
-    AdminComponent
+    AdminComponent,
+    CounterComponent
   ],
   imports: [
     BrowserModule,

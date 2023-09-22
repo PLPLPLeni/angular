@@ -7,4 +7,9 @@ import { Component } from '@angular/core';
 })
 export class AdminComponent {
 
+  public oirehgouiergherouigheroigheroigjeroigerhjgoierhjgoiergjeroighjeroighgregergergergerererererererererererererererererererererererererererererererererererererererererererererererererererererererererererererererererererererererererereroighergoier?: string;
+
+  public countHasChanged(count: number): void {
+    console.log('Count new value', count);
+  }
 }
